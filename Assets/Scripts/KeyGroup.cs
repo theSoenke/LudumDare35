@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +7,7 @@ public class KeyGroup : MonoBehaviour
     public float keyNum = 5;
     public int maxKeyErrors = 2;
     public GameObject keyPrefab;
+    public Sprite[] keyTextures;
 
     [HideInInspector]
     public bool locked;
@@ -19,12 +19,11 @@ public class KeyGroup : MonoBehaviour
 
     void Awake()
     {
+        InitKeys();
+
         animator = GetComponent<Animator>();
         float spawnDelay = ButtonSmash.Instance.spawnDelay;
         animator.speed = 1 / spawnDelay;
-        keyPressTime = spawnDelay;
-
-        InitKeys();
     }
 
     public void Input(KeyCode keyCode)
@@ -37,6 +36,7 @@ public class KeyGroup : MonoBehaviour
 
         if (keyCode == nextKey.keyCode)
         {
+            // nextKey.gameObject.GetComponentInChildren<Image>().color = Color.green;
             Destroy(nextKey.gameObject);
             keyGroup.RemoveAt(0);
         }
@@ -68,15 +68,18 @@ public class KeyGroup : MonoBehaviour
     private void SpawnKey(int keyNum)
     {
         Vector3 pos = transform.position;
-        pos.x = pos.x + 45 * keyNum;
+        pos.x = pos.x + 75 * keyNum;
 
         GameObject buttonGo = Instantiate(keyPrefab, pos, Quaternion.identity) as GameObject;
         buttonGo.transform.SetParent(transform);
-        Text buttonContent = buttonGo.GetComponentInChildren<Text>();
 
         KeyCode keyCode = ButtonSmash.Instance.RandomKey();
-        Key key = new Key(keyCode, buttonGo, keyPressTime);
-        buttonContent.text = key.ToString();
+        Key key = new Key(keyCode, buttonGo);
+
+        //Text buttonContent = buttonGo.GetComponentInChildren<Text>();
+        //buttonContent.text = key.ToString();
+        Image keyImg = buttonGo.GetComponentInChildren<Image>();
+        keyImg.sprite = GetKeyTexture(keyCode);
 
         keyGroup.Add(key);
     }
@@ -100,32 +103,16 @@ public class KeyGroup : MonoBehaviour
         return locked;
     }
 
-    private class Key
+    private Sprite GetKeyTexture(KeyCode key)
     {
-        public Key(KeyCode keyCode, GameObject gameObject, float timer)
+        foreach (var tex in keyTextures)
         {
-            this.keyCode = keyCode;
-            this.gameObject = gameObject;
-        }
-
-        public KeyCode keyCode;
-        public GameObject gameObject;
-
-        public override string ToString()
-        {
-            switch (keyCode)
+            if (key.ToString() == tex.name)
             {
-                case KeyCode.LeftArrow:
-                    return "<=";
-                case KeyCode.RightArrow:
-                    return "=>";
-                case KeyCode.UpArrow:
-                    return "^";
-                case KeyCode.DownArrow:
-                    return "_";
-                default:
-                    return "Undefined";
+                return tex;
             }
         }
+
+        return null;
     }
 }

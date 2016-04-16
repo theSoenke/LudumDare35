@@ -9,6 +9,7 @@ public class ButtonSmash : MonoBehaviour
     public int maxFails = 3;
     public Color failedColor;
 
+    [Range(0, 1)]
     public int level;
 
     private KeyCode[] level1Keys = { KeyCode.LeftArrow, KeyCode.RightArrow };
@@ -20,7 +21,7 @@ public class ButtonSmash : MonoBehaviour
     private bool running = true;
 
 
-    void Awake()
+    void OnEnable()
     {
         Instance = this;
     }
