@@ -8,11 +8,13 @@ public class ButtonSmash : MonoBehaviour
 
     public float spawnDelay = 3;
     public GameObject groupPrefab;
+    public int maxFails = 3;
     public Color failedColor;
 
     private KeyGroup currentGroup;
     private float timer;
     private int failedGroups;
+    private bool running = true;
 
 
     void Awake()
@@ -32,10 +34,16 @@ public class ButtonSmash : MonoBehaviour
 
         if (currentGroup != null)
         {
-            if (currentGroup.IsFailed())
+            if (!currentGroup.locked && currentGroup.IsFailed())
             {
                 failedGroups++;
                 currentGroup.SetColor(failedColor);
+
+                if (failedGroups >= maxFails)
+                {
+                    Debug.Log("You lost!");
+                    running = false;
+                }
             }
             else if (currentGroup.IsFinished())
             {
@@ -52,6 +60,11 @@ public class ButtonSmash : MonoBehaviour
         if (currentGroup != null)
         {
             Destroy(currentGroup.gameObject);
+        }
+
+        if (!running)
+        {
+            return;
         }
 
         GameObject groupGo = (GameObject)Instantiate(groupPrefab, transform.position, Quaternion.identity);

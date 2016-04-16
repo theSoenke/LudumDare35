@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e87dc8dd65747a84d825a23217cb924e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyNum: 5
+  keyNum: 8
   maxKeyErrors: 1
   keyPrefab: {fileID: 188362, guid: 0013e5ebdbd485a4db29b8a4ee474e26, type: 2}
 --- !u!114 &11428266

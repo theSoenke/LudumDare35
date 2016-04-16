@@ -8,11 +8,13 @@ public class KeyGroup : MonoBehaviour
     public int maxKeyErrors = 2;
     public GameObject keyPrefab;
 
+    [HideInInspector]
+    public bool locked;
+
     private float keyPressTime;
     private List<Key> keyGroup;
     private int keyErrors;
     private Animator animator;
-    private bool locked;
 
     void Awake()
     {
@@ -137,7 +139,15 @@ public class KeyGroup : MonoBehaviour
 
         public override string ToString()
         {
-            return KeyCodeToSign(keyCode);
+            switch (keyCode)
+            {
+                case KeyCode.LeftArrow:
+                    return "<=";
+                case KeyCode.RightArrow:
+                    return "=>";
+                default:
+                    return "Undefined";
+            }
         }
 
         public bool TimeOver()
@@ -147,19 +157,6 @@ public class KeyGroup : MonoBehaviour
                 return true;
             }
             return false;
-        }
-
-        private string KeyCodeToSign(KeyCode key)
-        {
-            switch (key)
-            {
-                case KeyCode.LeftArrow:
-                    return "<=";
-                case KeyCode.RightArrow:
-                    return "=>";
-                default:
-                    return "Undefined";
-            }
         }
     }
 }
