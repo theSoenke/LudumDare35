@@ -1,67 +1,61 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
-using Random = UnityEngine.Random;
 
 public class ButtonSmash : MonoBehaviour
 {
-    public float speed;
-    public GameObject buttonPrefab;
+    public static ButtonSmash Instance;
 
+    public float spawnDelay = 3;
+    public GameObject groupPrefab;
+
+    // debug
     public int score;
+    public int failedGroups;
 
-    private KeyCode lastPress;
-    private List<Key> nextKeys;
+    private KeyGroup currentGroup;
     private float timer;
 
-    void Start()
+
+    void Awake()
     {
-        InvokeRepeating("ButtonSpawner", 0, speed);
-        nextKeys = new List<Key>();
+        Instance = this;
     }
 
     void Update()
     {
         InputUpdate();
-    }
 
-    private void ButtonSpawner()
-    {
-        KeyCode nextKey = RandomKey();
-
-        GameObject buttonGo = Instantiate(buttonPrefab, transform.position, Quaternion.identity) as GameObject;
-        buttonGo.transform.SetParent(transform);
-        Text buttonContent = buttonGo.GetComponentInChildren<Text>();
-        buttonContent.text = KeyCodeToSign(nextKey);
-
-        Key key = new Key(nextKey, buttonGo);
-        nextKeys.Add(key);
-
-        float animTime = 4f;
-        StartCoroutine(DestroyButton(buttonGo, animTime));
-    }
-
-    private KeyCode RandomKey()
-    {
-        KeyCode[] values = { KeyCode.LeftArrow, KeyCode.RightArrow };
-        int random = Random.Range(0, values.Length);
-
-        return values[random];
-    }
-
-    private String KeyCodeToSign(KeyCode key)
-    {
-        switch (key)
+        if (currentGroup != null && currentGroup.IsFailed())
         {
-            case KeyCode.LeftArrow:
-                return "<=";
-            case KeyCode.RightArrow:
-                return "=>";
-            default:
-                return "Undefined";
+            failedGroups++;
+            Destroy(currentGroup.gameObject);
+            currentGroup = null;
         }
+
+        if (timer <= 0)
+        {
+            SpawnGroup();
+            timer = spawnDelay;
+        }
+
+        timer -= Time.deltaTime;
+    }
+
+    private void SpawnGroup()
+    {
+        if (currentGroup != null)
+        {
+            Destroy(currentGroup.gameObject);
+        }
+
+        GameObject groupGo = (GameObject)Instantiate(groupPrefab, transform.position, Quaternion.identity);
+        currentGroup = groupGo.GetComponent<KeyGroup>();
+        currentGroup.transform.SetParent(transform);
+    }
+
+    public void KeyError()
+    {
+        Debug.Log("Failed group");
     }
 
     private IEnumerator DestroyButton(GameObject go, float time)
@@ -72,45 +66,18 @@ public class ButtonSmash : MonoBehaviour
 
     private void InputUpdate()
     {
-        KeyCode pressedKey = KeyCode.Escape;
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            pressedKey = KeyCode.LeftArrow;
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            pressedKey = KeyCode.RightArrow;
-        }
-
-        if (nextKeys.Count <= 0)
+        if(currentGroup == null)
         {
             return;
         }
-        Key nextKey = nextKeys[0];
 
-        if (nextKeys.Count > 0 && pressedKey == nextKey.keyCode)
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            score++;
-            Destroy(nextKey.go);
-            nextKeys.RemoveAt(0);
+            currentGroup.Input(KeyCode.LeftArrow);
         }
-        else if (pressedKey != KeyCode.Escape)
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            score--;
+            currentGroup.Input(KeyCode.RightArrow);
         }
-    }
-
-
-    private class Key
-    {
-        public Key(KeyCode keyCode, GameObject go)
-        {
-            this.keyCode = keyCode;
-            this.go = go;
-        }
-
-        public KeyCode keyCode;
-        public GameObject go;
     }
 }
