@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ButtonSmash : MonoBehaviour
 {
@@ -10,6 +8,11 @@ public class ButtonSmash : MonoBehaviour
     public GameObject groupPrefab;
     public int maxFails = 3;
     public Color failedColor;
+
+    public int level;
+
+    private KeyCode[] level1Keys = { KeyCode.LeftArrow, KeyCode.RightArrow };
+    private KeyCode[] level2Keys = { KeyCode.LeftArrow, KeyCode.RightArrow, KeyCode.UpArrow, KeyCode.DownArrow };
 
     private KeyGroup currentGroup;
     private float timer;
@@ -22,11 +25,41 @@ public class ButtonSmash : MonoBehaviour
         Instance = this;
     }
 
+    public KeyCode RandomKey()
+    {
+        KeyCode[] values;
+
+        switch (level)
+        {
+            case 0:
+                values = level1Keys;
+                break;
+            case 1:
+                values = level2Keys;
+                break;
+            default:
+                values = level1Keys;
+                break;
+        }
+
+        int random = Random.Range(0, values.Length);
+
+        return values[random];
+    }
+
     void Update()
     {
         if (timer <= 0)
         {
-            SpawnGroup();
+            if (currentGroup != null)
+            {
+                if (!currentGroup.locked && !currentGroup.IsFinished())
+                {
+                    Failure();
+                }
+            }
+
+            SpawnKeyGroup();
             timer = spawnDelay;
         }
 
@@ -36,18 +69,12 @@ public class ButtonSmash : MonoBehaviour
         {
             if (!currentGroup.locked && currentGroup.IsFailed())
             {
-                failedGroups++;
+                Failure();
                 currentGroup.SetColor(failedColor);
-
-                if (failedGroups >= maxFails)
-                {
-                    Debug.Log("You lost!");
-                    running = false;
-                }
             }
             else if (currentGroup.IsFinished())
             {
-                SpawnGroup();
+                SpawnKeyGroup();
                 timer = spawnDelay;
             }
         }
@@ -55,7 +82,7 @@ public class ButtonSmash : MonoBehaviour
         InputUpdate();
     }
 
-    private void SpawnGroup()
+    private void SpawnKeyGroup()
     {
         if (currentGroup != null)
         {
@@ -72,6 +99,17 @@ public class ButtonSmash : MonoBehaviour
         currentGroup.transform.SetParent(transform);
     }
 
+    private void Failure()
+    {
+        failedGroups++;
+
+        if (failedGroups >= maxFails)
+        {
+            Debug.Log("You lost!");
+            running = false;
+        }
+    }
+
     private void InputUpdate()
     {
         if (currentGroup == null)
@@ -86,6 +124,14 @@ public class ButtonSmash : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             currentGroup.Input(KeyCode.RightArrow);
+        }
+        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            currentGroup.Input(KeyCode.UpArrow);
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            currentGroup.Input(KeyCode.DownArrow);
         }
     }
 }

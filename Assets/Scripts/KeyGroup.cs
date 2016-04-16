@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -47,7 +48,7 @@ public class KeyGroup : MonoBehaviour
 
     public void SetColor(Color color)
     {
-        foreach(Key key in keyGroup)
+        foreach (Key key in keyGroup)
         {
             Image image = key.gameObject.GetComponentInChildren<Image>();
             image.color = color;
@@ -67,13 +68,13 @@ public class KeyGroup : MonoBehaviour
     private void SpawnKey(int keyNum)
     {
         Vector3 pos = transform.position;
-        pos.x = pos.x + 40 * keyNum;
+        pos.x = pos.x + 45 * keyNum;
 
         GameObject buttonGo = Instantiate(keyPrefab, pos, Quaternion.identity) as GameObject;
         buttonGo.transform.SetParent(transform);
         Text buttonContent = buttonGo.GetComponentInChildren<Text>();
 
-        KeyCode keyCode = RandomKey();
+        KeyCode keyCode = ButtonSmash.Instance.RandomKey();
         Key key = new Key(keyCode, buttonGo, keyPressTime);
         buttonContent.text = key.ToString();
 
@@ -82,7 +83,7 @@ public class KeyGroup : MonoBehaviour
 
     public bool IsFinished()
     {
-        if(keyGroup.Count == 0)
+        if (keyGroup.Count == 0)
         {
             return true;
         }
@@ -91,34 +92,12 @@ public class KeyGroup : MonoBehaviour
 
     public bool IsFailed()
     {
-        bool failed = false;
-
-        for (int i = 0; i < keyGroup.Count; i++)
-        {
-            Key key = keyGroup[i];
-
-            if (key.TimeOver())
-            {
-                failed = true;
-            }
-        }
-
         if (keyErrors >= maxKeyErrors)
         {
-            failed = true;
+            locked = true;
         }
 
-        locked = failed;
-
-        return failed;
-    }
-
-    private KeyCode RandomKey()
-    {
-        KeyCode[] values = { KeyCode.LeftArrow, KeyCode.RightArrow };
-        int random = Random.Range(0, values.Length);
-
-        return values[random];
+        return locked;
     }
 
     private class Key
@@ -126,16 +105,11 @@ public class KeyGroup : MonoBehaviour
         public Key(KeyCode keyCode, GameObject gameObject, float timer)
         {
             this.keyCode = keyCode;
-            this.timer = timer;
             this.gameObject = gameObject;
-            spawnTime = Time.realtimeSinceStartup;
         }
 
         public KeyCode keyCode;
         public GameObject gameObject;
-
-        private float spawnTime;
-        private float timer;
 
         public override string ToString()
         {
@@ -145,18 +119,13 @@ public class KeyGroup : MonoBehaviour
                     return "<=";
                 case KeyCode.RightArrow:
                     return "=>";
+                case KeyCode.UpArrow:
+                    return "^";
+                case KeyCode.DownArrow:
+                    return "_";
                 default:
                     return "Undefined";
             }
-        }
-
-        public bool TimeOver()
-        {
-            if (Time.realtimeSinceStartup - spawnTime > timer)
-            {
-                return true;
-            }
-            return false;
         }
     }
 }
