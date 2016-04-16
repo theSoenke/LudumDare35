@@ -7,20 +7,20 @@ public class KeyGroup : MonoBehaviour
     public float keyNum = 5;
     public int maxKeyErrors = 2;
     public GameObject keyPrefab;
-    public float keyTime = 3;
 
+    private float keyPressTime;
     private List<Key> keyGroup;
     private int keyErrors;
-
+    private Animator animator;
 
     void Start()
     {
-        InitKeys();
-    }
+        animator = GetComponent<Animator>();
+        float spawnDelay = ButtonSmash.Instance.spawnDelay;
+        animator.speed = 1 / spawnDelay;
+        keyPressTime = spawnDelay;
 
-    void Update()
-    {
-        IsFailed();
+        InitKeys();
     }
 
     public void Input(KeyCode keyCode)
@@ -62,7 +62,7 @@ public class KeyGroup : MonoBehaviour
         Text buttonContent = buttonGo.GetComponentInChildren<Text>();
 
         KeyCode keyCode = RandomKey();
-        Key key = new Key(keyCode, buttonGo, keyTime);
+        Key key = new Key(keyCode, buttonGo, keyPressTime);
         buttonContent.text = key.ToString();
 
         keyGroup.Add(key);

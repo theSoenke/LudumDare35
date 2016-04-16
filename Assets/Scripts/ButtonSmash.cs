@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ButtonSmash : MonoBehaviour
@@ -8,12 +9,9 @@ public class ButtonSmash : MonoBehaviour
     public float spawnDelay = 3;
     public GameObject groupPrefab;
 
-    // debug
-    public int score;
-    public int failedGroups;
-
     private KeyGroup currentGroup;
     private float timer;
+    private int failedGroups;
 
 
     void Awake()
@@ -23,15 +21,6 @@ public class ButtonSmash : MonoBehaviour
 
     void Update()
     {
-        InputUpdate();
-
-        if (currentGroup != null && currentGroup.IsFailed())
-        {
-            failedGroups++;
-            Destroy(currentGroup.gameObject);
-            currentGroup = null;
-        }
-
         if (timer <= 0)
         {
             SpawnGroup();
@@ -39,6 +28,17 @@ public class ButtonSmash : MonoBehaviour
         }
 
         timer -= Time.deltaTime;
+
+        if (currentGroup == null)
+        {
+            if (currentGroup.IsFailed())
+            {
+                failedGroups++;
+                Destroy(currentGroup.gameObject);
+            }
+        }
+
+        InputUpdate();
     }
 
     private void SpawnGroup()
@@ -66,7 +66,7 @@ public class ButtonSmash : MonoBehaviour
 
     private void InputUpdate()
     {
-        if(currentGroup == null)
+        if (currentGroup == null)
         {
             return;
         }
