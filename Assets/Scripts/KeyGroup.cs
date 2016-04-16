@@ -101,7 +101,7 @@ public class KeyGroup : MonoBehaviour
             }
         }
 
-        if (keyErrors > maxKeyErrors)
+        if (keyErrors >= maxKeyErrors)
         {
             failed = true;
         }
