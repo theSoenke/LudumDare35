@@ -8,6 +8,7 @@ public class ButtonSmash : MonoBehaviour
 
     public float spawnDelay = 3;
     public GameObject groupPrefab;
+    public Color failedColor;
 
     private KeyGroup currentGroup;
     private float timer;
@@ -29,12 +30,17 @@ public class ButtonSmash : MonoBehaviour
 
         timer -= Time.deltaTime;
 
-        if (currentGroup == null)
+        if (currentGroup != null)
         {
             if (currentGroup.IsFailed())
             {
                 failedGroups++;
-                Destroy(currentGroup.gameObject);
+                currentGroup.SetColor(failedColor);
+            }
+            else if (currentGroup.IsFinished())
+            {
+                SpawnGroup();
+                timer = spawnDelay;
             }
         }
 
@@ -51,17 +57,6 @@ public class ButtonSmash : MonoBehaviour
         GameObject groupGo = (GameObject)Instantiate(groupPrefab, transform.position, Quaternion.identity);
         currentGroup = groupGo.GetComponent<KeyGroup>();
         currentGroup.transform.SetParent(transform);
-    }
-
-    public void KeyError()
-    {
-        Debug.Log("Failed group");
-    }
-
-    private IEnumerator DestroyButton(GameObject go, float time)
-    {
-        yield return new WaitForSeconds(time);
-        Destroy(go);
     }
 
     private void InputUpdate()

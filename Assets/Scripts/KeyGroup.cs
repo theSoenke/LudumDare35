@@ -12,8 +12,9 @@ public class KeyGroup : MonoBehaviour
     private List<Key> keyGroup;
     private int keyErrors;
     private Animator animator;
+    private bool locked;
 
-    void Start()
+    void Awake()
     {
         animator = GetComponent<Animator>();
         float spawnDelay = ButtonSmash.Instance.spawnDelay;
@@ -25,7 +26,7 @@ public class KeyGroup : MonoBehaviour
 
     public void Input(KeyCode keyCode)
     {
-        if (keyGroup.Count <= 0)
+        if (keyGroup.Count <= 0 || locked)
         {
             return;
         }
@@ -39,6 +40,15 @@ public class KeyGroup : MonoBehaviour
         else
         {
             keyErrors++;
+        }
+    }
+
+    public void SetColor(Color color)
+    {
+        foreach(Key key in keyGroup)
+        {
+            Image image = key.gameObject.GetComponentInChildren<Image>();
+            image.color = color;
         }
     }
 
@@ -68,24 +78,37 @@ public class KeyGroup : MonoBehaviour
         keyGroup.Add(key);
     }
 
+    public bool IsFinished()
+    {
+        if(keyGroup.Count == 0)
+        {
+            return true;
+        }
+        return false;
+    }
+
     public bool IsFailed()
     {
+        bool failed = false;
+
         for (int i = 0; i < keyGroup.Count; i++)
         {
             Key key = keyGroup[i];
 
             if (key.TimeOver())
             {
-                return true;
+                failed = true;
             }
         }
 
         if (keyErrors > maxKeyErrors)
         {
-            return true;
+            failed = true;
         }
 
-        return false;
+        locked = failed;
+
+        return failed;
     }
 
     private KeyCode RandomKey()
