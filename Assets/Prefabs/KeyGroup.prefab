@@ -11,7 +11,6 @@ GameObject:
   - 222: {fileID: 22277532}
   - 114: {fileID: 11428266}
   - 114: {fileID: 11422252}
-  - 95: {fileID: 9596796}
   m_Layer: 5
   m_Name: KeyGroup
   m_TagString: Untagged
@@ -19,23 +18,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &9596796
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 161650}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 85b558722ef329e4e88eb3deaa5f00e3, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11422252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -103,7 +85,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 200, y: -29.999994}
+  m_AnchoredPosition: {x: 0, y: -29.999994}
   m_SizeDelta: {x: 0, y: 60}
   m_Pivot: {x: 1, y: 0}
 --- !u!1001 &100100000

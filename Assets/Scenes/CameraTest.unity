@@ -122,7 +122,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 435738, guid: 604481ea880261d4c9a064e381f2a7d9, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 604481ea880261d4c9a064e381f2a7d9, type: 2}
@@ -806,7 +806,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1028268756
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1327,6 +1327,7 @@ MonoBehaviour:
   motivationSlider: {fileID: 1589835387}
   maxFails: 3
   animator: {fileID: 1601081234}
+  looseScreen: {fileID: 1028268755}
   level: 1
 --- !u!4 &1797332044
 Transform:
@@ -1847,7 +1848,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Next year i try harder..
+  m_Text: Next year i will try harder..
 --- !u!222 &2045535478
 CanvasRenderer:
   m_ObjectHideFlags: 0

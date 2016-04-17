@@ -42,46 +42,55 @@ public class ButtonSmash : MonoBehaviour
         return values[random];
     }
 
+    bool locked = false;
+    float xPos = 0;
     void Update()
     {
-        if(!GameManager.Instance.IsRunning())
+        float t = timer / spawnDelay;
+        if (currentGroup == null)
         {
-            return;
+            SpawnKeyGroup();
+        }
+        else
+        {
+            Vector3 pos = currentGroup.transform.position;
+            timer += Time.deltaTime;
+            pos.x = Mathf.Lerp(xPos + 70, -800, t);
+            currentGroup.transform.position = pos;
         }
 
-        if (timer <= 0)
+        if (currentGroup.IsFinished())
         {
-            if (currentGroup != null)
+            timer = 0;
+            GameManager.Instance.GroupFinished();
+            Destroy(currentGroup.gameObject);
+            SpawnKeyGroup();
+        }
+
+        if (t >= 1)
+        {
+            timer = 0;
+
+            if (!locked)
             {
-                if (!currentGroup.locked && !currentGroup.IsFinished())
+                Destroy(currentGroup.gameObject);
+                GameManager.Instance.GroupFailed();
+                locked = true;
+            }
+            else
+            {
+                if (currentGroup != null)
                 {
-                    GameManager.Instance.GroupFailed();
+                    Destroy(currentGroup.gameObject);
                 }
             }
-
-            if(GameManager.Instance.IsRunning())
-            {
-                Debug.Log("spawn");
-                SpawnKeyGroup();
-            }
-            timer = spawnDelay;
         }
 
-        timer -= Time.deltaTime;
-
-        if (currentGroup != null)
+        if (!locked && currentGroup.IsFailed())
         {
-            if (!currentGroup.locked && currentGroup.IsFailed())
-            {
-                GameManager.Instance.GroupFailed();
-                currentGroup.SetColor(failedColor);
-            }
-            else if (currentGroup.IsFinished())
-            {
-                GameManager.Instance.GroupFinished();
-                SpawnKeyGroup();
-                timer = spawnDelay;
-            }
+            locked = true;
+            currentGroup.SetColor(failedColor);
+            GameManager.Instance.GroupFailed();
         }
 
         InputUpdate();
@@ -89,14 +98,25 @@ public class ButtonSmash : MonoBehaviour
 
     private void SpawnKeyGroup()
     {
+        if (!GameManager.Instance.IsRunning())
+        {
+            return;
+        }
+
         if (currentGroup != null)
         {
             Destroy(currentGroup.gameObject);
         }
 
-        GameObject groupGo = (GameObject)Instantiate(groupPrefab, transform.position, Quaternion.identity);
+        Vector3 pos = transform.position;
+        pos.x += 70;
+        GameObject groupGo = (GameObject)Instantiate(groupPrefab, pos, Quaternion.identity);
         currentGroup = groupGo.GetComponent<KeyGroup>();
         currentGroup.transform.SetParent(transform);
+
+        xPos = currentGroup.transform.position.x;
+
+        locked = false;
     }
 
     private void InputUpdate()

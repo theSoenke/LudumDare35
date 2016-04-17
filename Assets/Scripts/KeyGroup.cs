@@ -14,15 +14,10 @@ public class KeyGroup : MonoBehaviour
 
     private List<Key> keyGroup;
     private int keyErrors;
-    private Animator animator;
 
     void Awake()
     {
         InitKeys();
-
-        animator = GetComponent<Animator>();
-        float spawnDelay = ButtonSmash.Instance.spawnDelay;
-        animator.speed = 1 / spawnDelay;
     }
 
     public void Input(KeyCode keyCode)

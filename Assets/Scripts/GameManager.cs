@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public Slider motivationSlider;
     public int maxFails = 3;
     public Animator animator;
+    public GameObject looseScreen;
 
     [Range(0, 1)]
     public int level;
@@ -31,6 +32,8 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("You lost!");
             running = false;
+
+            looseScreen.SetActive(true);
         }
 
         motivationSlider.value = motivation;
@@ -61,7 +64,6 @@ public class GameManager : MonoBehaviour
     private IEnumerator FallingAnimation()
     {
         animator.SetTrigger("Fall");
-        animator.SetTrigger("Run");
         yield return new WaitForSeconds(4.55f);
         running = true;
     }
