@@ -6,19 +6,13 @@ public class ButtonSmash : MonoBehaviour
 
     public float spawnDelay = 3;
     public GameObject groupPrefab;
-    public int maxFails = 3;
     public Color failedColor;
-
-    [Range(0, 1)]
-    public int level;
 
     private KeyCode[] level1Keys = { KeyCode.LeftArrow, KeyCode.RightArrow };
     private KeyCode[] level2Keys = { KeyCode.LeftArrow, KeyCode.RightArrow, KeyCode.UpArrow, KeyCode.DownArrow };
 
     private KeyGroup currentGroup;
     private float timer;
-    private int failedGroups;
-    private bool running = true;
 
 
     void OnEnable()
@@ -30,7 +24,7 @@ public class ButtonSmash : MonoBehaviour
     {
         KeyCode[] values;
 
-        switch (level)
+        switch (GameManager.Instance.level)
         {
             case 0:
                 values = level1Keys;
@@ -50,17 +44,26 @@ public class ButtonSmash : MonoBehaviour
 
     void Update()
     {
+        if(!GameManager.Instance.IsRunning())
+        {
+            return;
+        }
+
         if (timer <= 0)
         {
             if (currentGroup != null)
             {
                 if (!currentGroup.locked && !currentGroup.IsFinished())
                 {
-                    Failure();
+                    GameManager.Instance.GroupFailed();
                 }
             }
 
-            SpawnKeyGroup();
+            if(GameManager.Instance.IsRunning())
+            {
+                Debug.Log("spawn");
+                SpawnKeyGroup();
+            }
             timer = spawnDelay;
         }
 
@@ -70,11 +73,12 @@ public class ButtonSmash : MonoBehaviour
         {
             if (!currentGroup.locked && currentGroup.IsFailed())
             {
-                Failure();
+                GameManager.Instance.GroupFailed();
                 currentGroup.SetColor(failedColor);
             }
             else if (currentGroup.IsFinished())
             {
+                GameManager.Instance.GroupFinished();
                 SpawnKeyGroup();
                 timer = spawnDelay;
             }
@@ -90,25 +94,9 @@ public class ButtonSmash : MonoBehaviour
             Destroy(currentGroup.gameObject);
         }
 
-        if (!running)
-        {
-            return;
-        }
-
         GameObject groupGo = (GameObject)Instantiate(groupPrefab, transform.position, Quaternion.identity);
         currentGroup = groupGo.GetComponent<KeyGroup>();
         currentGroup.transform.SetParent(transform);
-    }
-
-    private void Failure()
-    {
-        failedGroups++;
-
-        if (failedGroups >= maxFails)
-        {
-            Debug.Log("You lost!");
-            running = false;
-        }
     }
 
     private void InputUpdate()

@@ -12,7 +12,6 @@ public class KeyGroup : MonoBehaviour
     [HideInInspector]
     public bool locked;
 
-    private float keyPressTime;
     private List<Key> keyGroup;
     private int keyErrors;
     private Animator animator;
