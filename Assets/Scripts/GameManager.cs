@@ -10,7 +10,11 @@ public class GameManager : MonoBehaviour
     public Slider motivationSlider;
     public int maxFails = 3;
     public Animator animator;
+    public Text scoreText;
+
     public GameObject looseScreen;
+    public Text looseScore;
+    public Text looseHighscore;
 
     [Range(0, 1)]
     public int level;
@@ -18,7 +22,8 @@ public class GameManager : MonoBehaviour
     private int failedGroups;
     private float motivation = 1;
     private bool running = true;
-
+    private int score;
+    private int highscore;
 
     void Awake()
     {
@@ -26,23 +31,40 @@ public class GameManager : MonoBehaviour
         running = true;
     }
 
+    void Start()
+    {
+        highscore = PlayerPrefs.GetInt("highscore");
+    }
+
     private void CheckStatus()
     {
         if (motivation <= 0.01f)
         {
-            Debug.Log("You lost!");
-            running = false;
-
-            looseScreen.SetActive(true);
+            Loose();
         }
 
         motivationSlider.value = motivation;
+    }
+
+    private void Loose()
+    {
+        Debug.Log("You lost!");
+        running = false;
+
+        SaveHighscore();
+        looseScreen.SetActive(true);
+        scoreText.gameObject.SetActive(false);
+
+        looseScore.text = score.ToString();
+        looseHighscore.text = highscore.ToString();
     }
 
     public void GroupFinished()
     {
         motivation += 0.2f;
         motivation = Mathf.Clamp(motivation, 0, 1);
+        score += 10;
+        scoreText.text = score.ToString();
         CheckStatus();
     }
 
@@ -66,5 +88,15 @@ public class GameManager : MonoBehaviour
         animator.SetTrigger("Fall");
         yield return new WaitForSeconds(4.55f);
         running = true;
+    }
+
+    private void SaveHighscore()
+    {
+        if (score > highscore)
+        {
+            Debug.Log("New highscore");
+            highscore = score;
+            PlayerPrefs.SetInt("highscore", highscore);
+        }
     }
 }
