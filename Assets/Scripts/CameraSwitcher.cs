@@ -3,8 +3,11 @@ using UnityEngine;
 
 public class CameraSwitcher : MonoBehaviour
 {
+    public float switchTime = 5;
+
     private List<Transform> cameras;
     private int selection;
+    private float timer;
 
     void Start()
     {
@@ -16,17 +19,30 @@ public class CameraSwitcher : MonoBehaviour
             child.gameObject.SetActive(false);
         }
 
-        cameras[0].gameObject.SetActive(true);
+        cameras[selection].gameObject.SetActive(true);
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
-            cameras[selection].gameObject.SetActive(false);
-            selection++;
-            selection %= cameras.Count;
-            cameras[selection].gameObject.SetActive(true);
+            SwitchCameraPerspective();
         }
+
+        timer -= Time.deltaTime;
+
+        if (timer <= 0)
+        {
+            SwitchCameraPerspective();
+            timer = switchTime;
+        }
+    }
+
+    private void SwitchCameraPerspective()
+    {
+        cameras[selection].gameObject.SetActive(false);
+        selection++;
+        selection %= cameras.Count;
+        cameras[selection].gameObject.SetActive(true);
     }
 }
