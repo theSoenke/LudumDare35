@@ -584,6 +584,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5c19feb6cd178504a8d740085482b922, type: 2}
   m_IsPrefabParent: 0
+--- !u!95 &633264138 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 9519622, guid: 5c19feb6cd178504a8d740085482b922,
+    type: 2}
+  m_PrefabInternal: {fileID: 633264137}
 --- !u!1001 &773462415
 Prefab:
   m_ObjectHideFlags: 0
@@ -2253,15 +2258,16 @@ MonoBehaviour:
   buttonSmasher: {fileID: 1279000790}
   motivationSlider: {fileID: 1028758456}
   maxFails: 3
-  animator: {fileID: 2011911876}
   scoreText: {fileID: 49222195}
   looseScreen: {fileID: 60706904}
   looseScore: {fileID: 163325718}
   looseHighscore: {fileID: 305632665}
   boxing: {fileID: 1201914797}
+  animatorBoxing: {fileID: 633264138}
   treadmill: {fileID: 1796894061}
-  fitnessSwitch: 500
-  levelSwitch: 250
+  animatorTreadmill: {fileID: 2011911876}
+  fitnessSwitch: 20
+  levelSwitch: 10
 --- !u!4 &1705608912
 Transform:
   m_ObjectHideFlags: 0
@@ -2538,6 +2544,6 @@ Prefab:
   m_IsPrefabParent: 0
 --- !u!95 &2011911876 stripped
 Animator:
-  m_PrefabParentObject: {fileID: 9585516, guid: 604481ea880261d4c9a064e381f2a7d9,
+  m_PrefabParentObject: {fileID: 9559754, guid: 604481ea880261d4c9a064e381f2a7d9,
     type: 2}
   m_PrefabInternal: {fileID: 2011911875}

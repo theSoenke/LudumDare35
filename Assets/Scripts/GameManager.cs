@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     public ButtonSmash buttonSmasher;
     public Slider motivationSlider;
     public int maxFails = 3;
-    public Animator animator;
     public Text scoreText;
 
     public GameObject looseScreen;
@@ -18,7 +17,9 @@ public class GameManager : MonoBehaviour
     public Text looseHighscore;
 
     public GameObject boxing;
+    public Animator animatorBoxing;
     public GameObject treadmill;
+    public Animator animatorTreadmill;
     public int fitnessSwitch = 500;
     public int levelSwitch = 250;
 
@@ -49,13 +50,13 @@ public class GameManager : MonoBehaviour
 
         motivationSlider.value = motivation;
 
-        if(score >= fitnessSwitch)
+        if (score >= fitnessSwitch)
         {
             treadmill.SetActive(false);
             boxing.SetActive(true);
         }
 
-        if(score >= levelSwitch)
+        if (score >= levelSwitch)
         {
             level = 1;
         }
@@ -89,7 +90,7 @@ public class GameManager : MonoBehaviour
         motivation -= 1 / (float)maxFails;
 
         running = false;
-        StartCoroutine(FallingAnimation());
+        StartCoroutine(FailAnimation());
         CheckStatus();
     }
 
@@ -108,10 +109,19 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
-    private IEnumerator FallingAnimation()
+    private IEnumerator FailAnimation()
     {
-        animator.SetTrigger("Fall");
-        yield return new WaitForSeconds(4.55f);
+        if (score <= fitnessSwitch)
+        {
+            animatorTreadmill.SetTrigger("fail");
+            yield return new WaitForSeconds(4.55f);
+        }
+        else
+        {
+            animatorBoxing.SetTrigger("fail");
+            yield return new WaitForSeconds(5.25f);
+        }
+
         running = true;
     }
 
