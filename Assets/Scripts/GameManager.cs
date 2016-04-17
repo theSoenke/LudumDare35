@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator FailAnimation()
     {
-        if (score <= fitnessSwitch)
+        if (score < fitnessSwitch)
         {
             animatorTreadmill.SetTrigger("fail");
             yield return new WaitForSeconds(4.55f);
