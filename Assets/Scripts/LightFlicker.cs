@@ -10,13 +10,13 @@ public class LightFlicker : MonoBehaviour
     private float changeTime;
     private float timeOn;
     private Light lamp;
-    private Renderer renderer;
+    private Renderer render;
 
 
     void Start()
     {
         lamp = GetComponent<Light>();
-        renderer = GetComponentInParent<Renderer>();
+        render = GetComponentInParent<Renderer>();
         timeOn = Random.Range(randomTimeRange.x, randomTimeRange.y);
     }
 
@@ -29,12 +29,12 @@ public class LightFlicker : MonoBehaviour
             {
                 changeTime = Time.time + timeOn;
                 timeOn = Random.Range(randomTimeRange.x, randomTimeRange.y);
-                renderer.sharedMaterial.SetColor("_EmissionColor", onColor);
+                render.sharedMaterial.SetColor("_EmissionColor", onColor);
             }
             else
             {
                 changeTime = Time.time + timeOff;
-                renderer.sharedMaterial.SetColor("_EmissionColor", offColor);
+                render.sharedMaterial.SetColor("_EmissionColor", offColor);
             }
         }
     }

@@ -24,7 +24,7 @@ public class ButtonSmash : MonoBehaviour
     {
         KeyCode[] values;
 
-        switch (GameManager.Instance.level)
+        switch (GameManager.Instance.GetLevel())
         {
             case 0:
                 values = level1Keys;

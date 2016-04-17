@@ -17,9 +17,12 @@ public class GameManager : MonoBehaviour
     public Text looseScore;
     public Text looseHighscore;
 
-    [Range(0, 1)]
-    public int level;
+    public GameObject boxing;
+    public GameObject treadmill;
+    public int fitnessSwitch = 500;
+    public int levelSwitch = 250;
 
+    private int level;
     private int failedGroups;
     private float motivation = 1;
     private bool running = true;
@@ -45,6 +48,17 @@ public class GameManager : MonoBehaviour
         }
 
         motivationSlider.value = motivation;
+
+        if(score >= fitnessSwitch)
+        {
+            treadmill.SetActive(false);
+            boxing.SetActive(true);
+        }
+
+        if(score >= levelSwitch)
+        {
+            level = 1;
+        }
     }
 
     private void Loose()
@@ -82,6 +96,11 @@ public class GameManager : MonoBehaviour
     public bool IsRunning()
     {
         return running;
+    }
+
+    public int GetLevel()
+    {
+        return level;
     }
 
     public void OpenMainMenu()
