@@ -17,9 +17,7 @@ public class GameManager : MonoBehaviour
     public Text looseHighscore;
 
     public GameObject boxing;
-    public Animator animatorBoxing;
     public GameObject treadmill;
-    public Animator animatorTreadmill;
     public int fitnessSwitch = 500;
     public int levelSwitch = 250;
 
@@ -30,6 +28,9 @@ public class GameManager : MonoBehaviour
     private int score;
     private int highscore;
 
+    private Animator animatorTreadmill;
+    private Animator animatorBoxing;
+
     void Awake()
     {
         Instance = this;
@@ -39,6 +40,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         highscore = PlayerPrefs.GetInt("highscore");
+        animatorTreadmill = treadmill.GetComponent<Animator>();
+        animatorBoxing = boxing.GetComponent<Animator>();
     }
 
     private void CheckStatus()
