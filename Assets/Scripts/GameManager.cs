@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -81,6 +82,11 @@ public class GameManager : MonoBehaviour
     public bool IsRunning()
     {
         return running;
+    }
+
+    public void OpenMainMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 
     private IEnumerator FallingAnimation()
