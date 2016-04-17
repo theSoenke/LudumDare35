@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -8,6 +9,7 @@ public class GameManager : MonoBehaviour
     public ButtonSmash buttonSmasher;
     public Slider motivationSlider;
     public int maxFails = 3;
+    public Animator animator;
 
     [Range(0, 1)]
     public int level;
@@ -25,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     private void CheckStatus()
     {
-        if (failedGroups >= maxFails)
+        if (motivation <= 0.01f)
         {
             Debug.Log("You lost!");
             running = false;
@@ -45,11 +47,22 @@ public class GameManager : MonoBehaviour
     {
         failedGroups++;
         motivation -= 1 / (float)maxFails;
+
+        running = false;
+        StartCoroutine(FallingAnimation());
         CheckStatus();
     }
 
     public bool IsRunning()
     {
         return running;
+    }
+
+    private IEnumerator FallingAnimation()
+    {
+        animator.SetTrigger("Fall");
+        animator.SetTrigger("Run");
+        yield return new WaitForSeconds(4.55f);
+        running = true;
     }
 }
