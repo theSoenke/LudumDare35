@@ -2145,7 +2145,7 @@ MonoBehaviour:
   timeOff: 0.5
   randomTimeRange: {x: 0.1, y: 20}
   offColor: {r: 0.097, g: 0.09343382, b: 0.09343382, a: 0.216}
-  onColor: {r: 0.81681186, g: 0.83823526, b: 0.4499351, a: 0.309}
+  onColor: {r: 0.8618662, g: 0.875, b: 0.6369485, a: 0.309}
 --- !u!108 &1609065870
 Light:
   m_ObjectHideFlags: 0
@@ -2301,8 +2301,8 @@ MonoBehaviour:
   looseHighscore: {fileID: 305632665}
   boxing: {fileID: 1201914797}
   treadmill: {fileID: 1726432430}
-  fitnessSwitch: 20
-  levelSwitch: 10
+  fitnessSwitch: 300
+  levelSwitch: 150
 --- !u!4 &1705608912
 Transform:
   m_ObjectHideFlags: 0
