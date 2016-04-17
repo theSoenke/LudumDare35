@@ -3,6 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+    void Start()
+    {
+        Cursor.visible = true;
+    }
+
     public void LoadGame()
     {
         SceneManager.LoadScene("Game");

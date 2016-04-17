@@ -33,7 +33,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._MainTex_ST.x
-    path: laufbandAnimiert
+    path: 
     classID: 23
     script: {fileID: 0}
   - curve:
@@ -53,7 +53,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._MainTex_ST.y
-    path: laufbandAnimiert
+    path: 
     classID: 23
     script: {fileID: 0}
   - curve:
@@ -73,7 +73,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._MainTex_ST.z
-    path: laufbandAnimiert
+    path: 
     classID: 23
     script: {fileID: 0}
   - curve:
@@ -93,7 +93,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._MainTex_ST.w
-    path: laufbandAnimiert
+    path: 
     classID: 23
     script: {fileID: 0}
   - curve:
@@ -113,7 +113,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._EmissionMap_ST.x
-    path: laufbandAnimiert
+    path: 
     classID: 23
     script: {fileID: 0}
   - curve:
@@ -133,7 +133,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._EmissionMap_ST.y
-    path: laufbandAnimiert
+    path: 
     classID: 23
     script: {fileID: 0}
   - curve:
@@ -153,7 +153,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._EmissionMap_ST.z
-    path: laufbandAnimiert
+    path: 
     classID: 23
     script: {fileID: 0}
   - curve:
@@ -173,7 +173,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._EmissionMap_ST.w
-    path: laufbandAnimiert
+    path: 
     classID: 23
     script: {fileID: 0}
   m_PPtrCurves: []
@@ -184,49 +184,49 @@ AnimationClip:
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
     genericBindings:
-    - path: 3772844808
+    - path: 0
       attribute: 646366601
       script: {fileID: 0}
       classID: 23
       customType: 22
       isPPtrCurve: 0
-    - path: 3772844808
+    - path: 0
       attribute: 706477168
       script: {fileID: 0}
       classID: 23
       customType: 22
       isPPtrCurve: 0
-    - path: 3772844808
+    - path: 0
       attribute: 109495689
       script: {fileID: 0}
       classID: 23
       customType: 22
       isPPtrCurve: 0
-    - path: 3772844808
+    - path: 0
       attribute: 377931145
       script: {fileID: 0}
       classID: 23
       customType: 22
       isPPtrCurve: 0
-    - path: 3772844808
+    - path: 0
       attribute: 914802057
       script: {fileID: 0}
       classID: 23
       customType: 22
       isPPtrCurve: 0
-    - path: 3772844808
+    - path: 0
       attribute: 169606256
       script: {fileID: 0}
       classID: 23
       customType: 22
       isPPtrCurve: 0
-    - path: 3772844808
+    - path: 0
       attribute: 438041712
       script: {fileID: 0}
       classID: 23
       customType: 22
       isPPtrCurve: 0
-    - path: 3772844808
+    - path: 0
       attribute: 974912624
       script: {fileID: 0}
       classID: 23
@@ -271,7 +271,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._MainTex_ST.x
-    path: laufbandAnimiert
+    path: 
     classID: 23
     script: {fileID: 0}
   - curve:
@@ -291,7 +291,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._MainTex_ST.y
-    path: laufbandAnimiert
+    path: 
     classID: 23
     script: {fileID: 0}
   - curve:
@@ -311,7 +311,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._MainTex_ST.z
-    path: laufbandAnimiert
+    path: 
     classID: 23
     script: {fileID: 0}
   - curve:
@@ -331,7 +331,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._MainTex_ST.w
-    path: laufbandAnimiert
+    path: 
     classID: 23
     script: {fileID: 0}
   - curve:
@@ -351,7 +351,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._EmissionMap_ST.x
-    path: laufbandAnimiert
+    path: 
     classID: 23
     script: {fileID: 0}
   - curve:
@@ -371,7 +371,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._EmissionMap_ST.y
-    path: laufbandAnimiert
+    path: 
     classID: 23
     script: {fileID: 0}
   - curve:
@@ -391,7 +391,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._EmissionMap_ST.z
-    path: laufbandAnimiert
+    path: 
     classID: 23
     script: {fileID: 0}
   - curve:
@@ -411,7 +411,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._EmissionMap_ST.w
-    path: laufbandAnimiert
+    path: 
     classID: 23
     script: {fileID: 0}
   m_EulerEditorCurves: []

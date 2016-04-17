@@ -85,6 +85,27 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &14948133 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 156446, guid: 604481ea880261d4c9a064e381f2a7d9, type: 2}
+  m_PrefabInternal: {fileID: 1423936402}
+--- !u!95 &14948137
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 14948133}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5dd365b19215647439cd6a27c8a4b0b8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &49222193
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,7 +596,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 448708, guid: 5c19feb6cd178504a8d740085482b922, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 112940, guid: 5c19feb6cd178504a8d740085482b922, type: 2}
       propertyPath: m_IsActive
@@ -1867,8 +1888,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 488090, guid: 604481ea880261d4c9a064e381f2a7d9, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 9532392, guid: 604481ea880261d4c9a064e381f2a7d9, type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 130204a521e348a459001d4a202f0a2a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 604481ea880261d4c9a064e381f2a7d9, type: 2}
   m_IsPrefabParent: 0

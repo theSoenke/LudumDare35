@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = false;
         highscore = PlayerPrefs.GetInt("highscore");
         animatorTreadmill = treadmill.GetComponent<Animator>();
         animatorBoxing = boxing.GetComponent<Animator>();
@@ -76,6 +77,7 @@ public class GameManager : MonoBehaviour
 
         looseScore.text = score.ToString();
         looseHighscore.text = highscore.ToString();
+        Cursor.visible = true;
     }
 
     public void GroupFinished()
