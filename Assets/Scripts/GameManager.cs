@@ -82,8 +82,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("You lost!");
         running = false;
-        Destroy(treadmill);
-        Destroy(boxing);
+       
 
         SaveHighscore();
         looseScreen.SetActive(true);
@@ -92,6 +91,10 @@ public class GameManager : MonoBehaviour
         looseScore.text = score.ToString();
         looseHighscore.text = highscore.ToString();
         Cursor.visible = true;
+
+        Destroy(treadmill);
+        Destroy(boxing);
+        Destroy(this);
     }
 
     public void GroupFinished()
