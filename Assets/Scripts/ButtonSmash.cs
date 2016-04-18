@@ -14,7 +14,7 @@ public class ButtonSmash : MonoBehaviour
     private KeyCode[] level1Keys = { KeyCode.LeftArrow, KeyCode.RightArrow };
     private KeyCode[] level2Keys = { KeyCode.LeftArrow, KeyCode.RightArrow, KeyCode.UpArrow, KeyCode.DownArrow };
 
-    private KeyGroup currentGroup;   
+    private KeyGroup currentGroup;
     private float timer;
 
 
@@ -38,7 +38,7 @@ public class ButtonSmash : MonoBehaviour
                 values = level1Keys;
                 break;
             case 1:
-                values = level2Keys;                
+                values = level2Keys;
                 break;
             default:
                 values = level1Keys;
@@ -52,7 +52,7 @@ public class ButtonSmash : MonoBehaviour
 
 
     private bool PosInViewport(Transform pos)
-    {       
+    {
         if (pos != null && Camera.main.ScreenToViewportPoint(pos.position).x < 0)
             return false;
 
@@ -67,7 +67,7 @@ public class ButtonSmash : MonoBehaviour
         float t = timer / spawnDelay;
         if (currentGroup == null)
         {
-            SpawnKeyGroup();                      
+            SpawnKeyGroup();
         }
         else
         {
@@ -81,11 +81,14 @@ public class ButtonSmash : MonoBehaviour
         {
             timer = 0;
             GameManager.Instance.GroupFinished();
-            Destroy(currentGroup.gameObject);
-            SpawnKeyGroup();          
+            if (currentGroup != null)
+            {
+                Destroy(currentGroup.gameObject);
+            }
+            SpawnKeyGroup();
         }
 
-        if ( !PosInViewport(currentGroup.pos)   )        //t >= 1)
+        if (!PosInViewport(currentGroup.pos))        //t >= 1)
         {
             timer = 0;
 
@@ -101,7 +104,7 @@ public class ButtonSmash : MonoBehaviour
                 {
                     Destroy(currentGroup.gameObject);
                 }
-            }           
+            }
         }
 
         if (!locked && currentGroup.IsFailed())
@@ -115,7 +118,7 @@ public class ButtonSmash : MonoBehaviour
     }
 
     private void SpawnKeyGroup()
-    {       
+    {
         if (!GameManager.Instance.IsRunning())
         {
             return;
@@ -134,7 +137,7 @@ public class ButtonSmash : MonoBehaviour
 
         xPos = currentGroup.transform.position.x;
 
-       
+
 
         locked = false;
     }
