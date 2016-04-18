@@ -8,16 +8,24 @@ public class ButtonSmash : MonoBehaviour
     public GameObject groupPrefab;
     public Color failedColor;
 
+    public AnimationCurve buttonSpeed;
+
     private KeyCode[] level1Keys = { KeyCode.LeftArrow, KeyCode.RightArrow };
     private KeyCode[] level2Keys = { KeyCode.LeftArrow, KeyCode.RightArrow, KeyCode.UpArrow, KeyCode.DownArrow };
 
     private KeyGroup currentGroup;
+    private int groupNr;
     private float timer;
 
 
     void OnEnable()
     {
         Instance = this;
+    }
+
+    void Start()
+    {
+        groupNr = 0;
     }
 
     public KeyCode RandomKey()
@@ -31,6 +39,7 @@ public class ButtonSmash : MonoBehaviour
                 break;
             case 1:
                 values = level2Keys;
+                groupNr = 0;
                 break;
             default:
                 values = level1Keys;
@@ -49,13 +58,13 @@ public class ButtonSmash : MonoBehaviour
         float t = timer / spawnDelay;
         if (currentGroup == null)
         {
-            SpawnKeyGroup();
+            SpawnKeyGroup();                      
         }
         else
         {
             Vector3 pos = currentGroup.transform.position;
             timer += Time.deltaTime;
-            pos.x = Mathf.Lerp(xPos + 70, -800, t);
+            pos.x = Mathf.Lerp(xPos + 70, -800, t) * buttonSpeed.Evaluate(groupNr);
             currentGroup.transform.position = pos;
         }
 
@@ -115,6 +124,8 @@ public class ButtonSmash : MonoBehaviour
         currentGroup.transform.SetParent(transform);
 
         xPos = currentGroup.transform.position.x;
+
+        groupNr++;
 
         locked = false;
     }

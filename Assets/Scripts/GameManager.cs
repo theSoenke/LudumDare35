@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     public int maxFails = 3;
     public Text scoreText;
 
+    public Text nextText;
+    public Text nextScoreText;
+
     public GameObject looseScreen;
     public Text looseScore;
     public Text looseHighscore;
@@ -43,6 +46,7 @@ public class GameManager : MonoBehaviour
         highscore = PlayerPrefs.GetInt("highscore");
         animatorTreadmill = treadmill.GetComponent<Animator>();
         animatorBoxing = boxing.GetComponent<Animator>();
+        nextScoreText.text = fitnessSwitch.ToString();
     }
 
     private void CheckStatus()
@@ -58,6 +62,7 @@ public class GameManager : MonoBehaviour
         {
             treadmill.SetActive(false);
             boxing.SetActive(true);
+            nextText.gameObject.SetActive(false);
         }
 
         if (score >= levelSwitch)
