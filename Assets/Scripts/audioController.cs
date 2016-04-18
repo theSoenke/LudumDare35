@@ -12,14 +12,12 @@ public class audioController: MonoBehaviour
     {        
         breath.Stop();
         uff.Play();
-        punch.Play();
-        breath.PlayDelayed(uff.clip.length + 2);
+        punch.Play();       
     }
 
     public void PlayUffBoxing()
     {
-        breath.Stop();
-        breath.PlayDelayed(uff.clip.length + 2);
+        breath.Stop();       
         uff.Play();
         punch2.Play();
     }
@@ -27,6 +25,12 @@ public class audioController: MonoBehaviour
     public void PlayPunch()
     {
         punch.Play();
+    }
+
+    public void PlayBreath()
+    {
+        if(!breath.isPlaying)
+            breath.Play();
     }
 	
 	
