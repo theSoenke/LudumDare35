@@ -151,7 +151,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Niels W.\tkautschuckflasche\nLukas L.\tOSaft\nS\xF6nke B.\ttheSoenke\nKamila"
+  m_Text: "Nils W.\t\tkautschuckflasche\nLukas L.\tOSaft\nS\xF6nke B.\ttheSoenke\nKamila"
 --- !u!222 &16412381
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -990,7 +990,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &641371694
 RectTransform:
   m_ObjectHideFlags: 0
