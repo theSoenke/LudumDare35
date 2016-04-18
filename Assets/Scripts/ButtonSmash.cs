@@ -101,7 +101,7 @@ public class ButtonSmash : MonoBehaviour
                 {
                     Destroy(currentGroup.gameObject);
                 }
-            }
+            }           
         }
 
         if (!locked && currentGroup.IsFailed())
@@ -115,8 +115,7 @@ public class ButtonSmash : MonoBehaviour
     }
 
     private void SpawnKeyGroup()
-    {
-        print(groupNr);
+    {       
         if (!GameManager.Instance.IsRunning())
         {
             return;

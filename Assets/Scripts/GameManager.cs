@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
 
     public CameraShake cameraShake;
 
+    public AudioSource klick;
+    public AudioSource error;
+
 
     private int level;
     private int failedGroups;
@@ -45,7 +48,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //Cursor.visible = false;
+        Cursor.visible = false;
         highscore = PlayerPrefs.GetInt("highscore");
         animatorTreadmill = treadmill.GetComponent<Animator>();
         animatorBoxing = boxing.GetComponent<Animator>();
