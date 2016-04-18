@@ -5,7 +5,7 @@ public class Menu : MonoBehaviour
 {
     void Start()
     {
-       
+
     }
 
     public void LoadGame()
@@ -16,5 +16,10 @@ public class Menu : MonoBehaviour
     public void ToogleFullscreen()
     {
         Screen.fullScreen = !Screen.fullScreen;
+    }
+
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }

@@ -134,7 +134,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 801317325}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -10, y: -10}
@@ -190,6 +190,7 @@ GameObject:
   - 222: {fileID: 60706908}
   - 114: {fileID: 60706907}
   - 114: {fileID: 60706906}
+  - 114: {fileID: 60706909}
   m_Layer: 5
   m_Name: Loose
   m_TagString: Untagged
@@ -212,7 +213,7 @@ RectTransform:
   - {fileID: 1569552966}
   - {fileID: 1474616406}
   m_Father: {fileID: 801317325}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -257,8 +258,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1705608911}
-        m_MethodName: OpenMainMenu
+      - m_Target: {fileID: 60706909}
+        m_MethodName: LoadMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -303,6 +304,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 60706904}
+--- !u!114 &60706909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 60706904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196c170c7db7c694db55a5af2b065cc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &163325716
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,6 +618,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5c19feb6cd178504a8d740085482b922, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &667826321 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100006, guid: c841e04fce96620419561f9017f7ee95, type: 3}
+  m_PrefabInternal: {fileID: 773462415}
 --- !u!1 &717135648
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,10 +896,10 @@ RectTransform:
   - {fileID: 1064335348}
   - {fileID: 1279000792}
   - {fileID: 1028758457}
-  - {fileID: 60706905}
   - {fileID: 1724784096}
   - {fileID: 49222194}
   - {fileID: 2068786456}
+  - {fileID: 60706905}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
@@ -3020,6 +3036,7 @@ MonoBehaviour:
   looseHighscore: {fileID: 305632665}
   boxing: {fileID: 1201914797}
   treadmill: {fileID: 1726432430}
+  room: {fileID: 667826321}
   fitnessSwitch: 300
   levelSwitch: 150
   cameraShake: {fileID: 1705608913}
@@ -3229,7 +3246,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 801317325}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -50, y: -10.000061}
@@ -3761,7 +3778,7 @@ RectTransform:
   m_Children:
   - {fileID: 717135649}
   m_Father: {fileID: 801317325}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -10, y: -40.000046}

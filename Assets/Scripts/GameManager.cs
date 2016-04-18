@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject boxing;
     public GameObject treadmill;
+    public GameObject room;
     public int fitnessSwitch = 500;
     public int levelSwitch = 250;
 
@@ -59,7 +60,7 @@ public class GameManager : MonoBehaviour
     {
         if (motivation <= 0.01f)
         {
-            Loose();
+            Invoke("Loose", 3.5f);
         }
 
         motivationSlider.value = motivation;
@@ -87,6 +88,7 @@ public class GameManager : MonoBehaviour
         running = false;
        
 
+
         SaveHighscore();
         looseScreen.SetActive(true);
         scoreText.gameObject.SetActive(false);
@@ -98,6 +100,7 @@ public class GameManager : MonoBehaviour
         Destroy(treadmill);
         Destroy(boxing);
         Destroy(this);
+        Destroy(room);
     }
 
     public void GroupFinished()
