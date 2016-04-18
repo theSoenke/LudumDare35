@@ -2833,7 +2833,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   power: 0.05
   duration: 0.3
-  maxDist: 0.05
+  maxDist: 0.1
 --- !u!1 &1724784095
 GameObject:
   m_ObjectHideFlags: 0

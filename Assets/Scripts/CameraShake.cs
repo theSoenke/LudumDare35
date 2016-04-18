@@ -22,9 +22,10 @@ public class CameraShake : MonoBehaviour
     {
         if (power > 0)
         {
-            float shakeAmount = Mathf.Clamp(Random.value * power * 2 - power, -maxDist, maxDist);
+            float shakeAmount = Random.value * power * 2 - power;
             Vector3 pp = Camera.main.transform.position;
             pp.y += shakeAmount;
+            pp.y = Mathf.Clamp(pp.y, originalCameraPosition.y - maxDist, originalCameraPosition.y + maxDist);
             Camera.main.transform.position = pp;
         }
     }
