@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
         {
             level = 1;
         }
-        if(score == levelSwitch)
+        if (score == levelSwitch)
         {
             buttonSmasher.groupNr = 0;
         }
