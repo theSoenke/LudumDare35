@@ -37,6 +37,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4691ac092e453a94db9a8b8cd1052a2d, type: 3}
   - {fileID: 21300000, guid: 7d78ca8a40c12604484f6ab06f743042, type: 3}
   - {fileID: 21300000, guid: 6baf3b2efa0ba014686cebbd7b56428a, type: 3}
+  pos: {fileID: 0}
   locked: 0
 --- !u!114 &11428266
 MonoBehaviour:
@@ -50,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.786}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
