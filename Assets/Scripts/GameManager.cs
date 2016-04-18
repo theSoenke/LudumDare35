@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
         if (score < fitnessSwitch)
         {
             animatorTreadmill.SetTrigger("fail");
-            cameraShake.Shake(1.3f);
+            cameraShake.Shake(.95f);
             yield return new WaitForSeconds(4.55f);
         }
         else
