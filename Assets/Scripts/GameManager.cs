@@ -82,6 +82,8 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("You lost!");
         running = false;
+        Destroy(treadmill);
+        Destroy(boxing);
 
         SaveHighscore();
         looseScreen.SetActive(true);
