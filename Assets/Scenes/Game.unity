@@ -1953,6 +1953,50 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!1 &1223124605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1223124606}
+  - 220: {fileID: 1223124607}
+  m_Layer: 0
+  m_Name: Light Probe Group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1223124606
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1223124605}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.988, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1967457168}
+  m_RootOrder: 9
+--- !u!220 &1223124607
+LightProbeGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1223124605}
+  m_Enabled: 1
+  m_SourcePositions:
+  - {x: 1.6491104, y: 1, z: 1.8370109}
+  - {x: 1.6491104, y: 1, z: -1.92242}
+  - {x: 1.6491104, y: -1, z: 1.8370109}
+  - {x: 1.6491104, y: -1, z: -1.92242}
+  - {x: -1.734092, y: 1, z: 1.8370109}
+  - {x: -1.734092, y: 1, z: -1.92242}
+  - {x: -1.734092, y: -1, z: 1.8370109}
+  - {x: -1.734092, y: -1, z: -1.92242}
 --- !u!1 &1229967079
 GameObject:
   m_ObjectHideFlags: 0
@@ -2363,6 +2407,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 130204a521e348a459001d4a202f0a2a, type: 2}
+    - target: {fileID: 183474, guid: 604481ea880261d4c9a064e381f2a7d9, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 604481ea880261d4c9a064e381f2a7d9, type: 2}
   m_IsPrefabParent: 0
