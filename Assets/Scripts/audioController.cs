@@ -18,6 +18,8 @@ public class audioController: MonoBehaviour
 
     public void PlayUffBoxing()
     {
+        breath.Stop();
+        breath.PlayDelayed(uff.clip.length + 2);
         uff.Play();
         punch2.Play();
     }
