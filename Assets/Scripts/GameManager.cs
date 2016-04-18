@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public int fitnessSwitch = 500;
     public int levelSwitch = 250;
 
+    public CameraShake cameraShake;
+
 
     private int level;
     private int failedGroups;
@@ -130,6 +132,7 @@ public class GameManager : MonoBehaviour
         if (score < fitnessSwitch)
         {
             animatorTreadmill.SetTrigger("fail");
+            cameraShake.Shake(.95f);
             yield return new WaitForSeconds(4.55f);
         }
         else
