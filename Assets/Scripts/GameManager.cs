@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public int fitnessSwitch = 500;
     public int levelSwitch = 250;
 
+
     private int level;
     private int failedGroups;
     private float motivation = 1;
@@ -42,7 +43,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Cursor.visible = false;
+        //Cursor.visible = false;
         highscore = PlayerPrefs.GetInt("highscore");
         animatorTreadmill = treadmill.GetComponent<Animator>();
         animatorBoxing = boxing.GetComponent<Animator>();

@@ -64,7 +64,7 @@ public class ButtonSmash : MonoBehaviour
         {
             Vector3 pos = currentGroup.transform.position;
             timer += Time.deltaTime;
-            pos.x = Mathf.Lerp(xPos + 70, -800, t) * buttonSpeed.Evaluate(groupNr);
+            pos.x = Mathf.Lerp(xPos, -800, t) * buttonSpeed.Evaluate(groupNr);
             currentGroup.transform.position = pos;
         }
 

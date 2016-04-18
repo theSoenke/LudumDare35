@@ -77,7 +77,443 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 271
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.30697674
+        functionName: PlayUffBoxing
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.12558138
+        functionName: PlayPunch
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: boxsack
+        weight: 1
+      - path: char
+        weight: 1
+      - path: charArmature
+        weight: 1
+      - path: charArmature/spine
+        weight: 1
+      - path: charArmature/spine/Arm_L_1
+        weight: 1
+      - path: charArmature/spine/Arm_L_1/Arm_L_2
+        weight: 1
+      - path: charArmature/spine/Arm_L_1/Arm_L_2/Hand_L
+        weight: 1
+      - path: charArmature/spine/Arm_R_1
+        weight: 1
+      - path: charArmature/spine/Arm_R_1/Arm_R_2
+        weight: 1
+      - path: charArmature/spine/Arm_R_1/Arm_R_2/Hand_R
+        weight: 1
+      - path: charArmature/spine/head
+        weight: 1
+      - path: charArmature/spine/head/Eye_L
+        weight: 1
+      - path: charArmature/spine/head/Eye_R
+        weight: 1
+      - path: charArmature/spine/Leg_L_1
+        weight: 1
+      - path: charArmature/spine/Leg_L_1/Leg_L_2
+        weight: 1
+      - path: charArmature/spine/Leg_L_1/Leg_L_2/Foot_L
+        weight: 1
+      - path: charArmature/spine/Leg_R_1
+        weight: 1
+      - path: charArmature/spine/Leg_R_1/Leg_R_2
+        weight: 1
+      - path: charArmature/spine/Leg_R_1/Leg_R_2/Foot_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: boxing
+      takeName: boxing
+      firstFrame: 0
+      lastFrame: 2
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: boxsack
+        weight: 1
+      - path: char
+        weight: 1
+      - path: charArmature
+        weight: 1
+      - path: charArmature/spine
+        weight: 1
+      - path: charArmature/spine/Arm_L_1
+        weight: 1
+      - path: charArmature/spine/Arm_L_1/Arm_L_2
+        weight: 1
+      - path: charArmature/spine/Arm_L_1/Arm_L_2/Hand_L
+        weight: 1
+      - path: charArmature/spine/Arm_R_1
+        weight: 1
+      - path: charArmature/spine/Arm_R_1/Arm_R_2
+        weight: 1
+      - path: charArmature/spine/Arm_R_1/Arm_R_2/Hand_R
+        weight: 1
+      - path: charArmature/spine/head
+        weight: 1
+      - path: charArmature/spine/head/Eye_L
+        weight: 1
+      - path: charArmature/spine/head/Eye_R
+        weight: 1
+      - path: charArmature/spine/Leg_L_1
+        weight: 1
+      - path: charArmature/spine/Leg_L_1/Leg_L_2
+        weight: 1
+      - path: charArmature/spine/Leg_L_1/Leg_L_2/Foot_L
+        weight: 1
+      - path: charArmature/spine/Leg_R_1
+        weight: 1
+      - path: charArmature/spine/Leg_R_1/Leg_R_2
+        weight: 1
+      - path: charArmature/spine/Leg_R_1/Leg_R_2/Foot_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: charArmatureAction
+      takeName: charArmatureAction
+      firstFrame: 1
+      lastFrame: 316
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.10465116
+        functionName: PlayPunch
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.2511628
+        functionName: PlayUffBoxing
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: boxsack
+        weight: 1
+      - path: char
+        weight: 1
+      - path: charArmature
+        weight: 1
+      - path: charArmature/spine
+        weight: 1
+      - path: charArmature/spine/Arm_L_1
+        weight: 1
+      - path: charArmature/spine/Arm_L_1/Arm_L_2
+        weight: 1
+      - path: charArmature/spine/Arm_L_1/Arm_L_2/Hand_L
+        weight: 1
+      - path: charArmature/spine/Arm_R_1
+        weight: 1
+      - path: charArmature/spine/Arm_R_1/Arm_R_2
+        weight: 1
+      - path: charArmature/spine/Arm_R_1/Arm_R_2/Hand_R
+        weight: 1
+      - path: charArmature/spine/head
+        weight: 1
+      - path: charArmature/spine/head/Eye_L
+        weight: 1
+      - path: charArmature/spine/head/Eye_R
+        weight: 1
+      - path: charArmature/spine/Leg_L_1
+        weight: 1
+      - path: charArmature/spine/Leg_L_1/Leg_L_2
+        weight: 1
+      - path: charArmature/spine/Leg_L_1/Leg_L_2/Foot_L
+        weight: 1
+      - path: charArmature/spine/Leg_R_1
+        weight: 1
+      - path: charArmature/spine/Leg_R_1/Leg_R_2
+        weight: 1
+      - path: charArmature/spine/Leg_R_1/Leg_R_2/Foot_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: charArmatureAction_002
+      takeName: charArmatureAction_002
+      firstFrame: -1
+      lastFrame: 117
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: boxsack
+        weight: 1
+      - path: char
+        weight: 1
+      - path: charArmature
+        weight: 1
+      - path: charArmature/spine
+        weight: 1
+      - path: charArmature/spine/Arm_L_1
+        weight: 1
+      - path: charArmature/spine/Arm_L_1/Arm_L_2
+        weight: 1
+      - path: charArmature/spine/Arm_L_1/Arm_L_2/Hand_L
+        weight: 1
+      - path: charArmature/spine/Arm_R_1
+        weight: 1
+      - path: charArmature/spine/Arm_R_1/Arm_R_2
+        weight: 1
+      - path: charArmature/spine/Arm_R_1/Arm_R_2/Hand_R
+        weight: 1
+      - path: charArmature/spine/head
+        weight: 1
+      - path: charArmature/spine/head/Eye_L
+        weight: 1
+      - path: charArmature/spine/head/Eye_R
+        weight: 1
+      - path: charArmature/spine/Leg_L_1
+        weight: 1
+      - path: charArmature/spine/Leg_L_1/Leg_L_2
+        weight: 1
+      - path: charArmature/spine/Leg_L_1/Leg_L_2/Foot_L
+        weight: 1
+      - path: charArmature/spine/Leg_R_1
+        weight: 1
+      - path: charArmature/spine/Leg_R_1/Leg_R_2
+        weight: 1
+      - path: charArmature/spine/Leg_R_1/Leg_R_2/Foot_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: fallingAnimation
+      takeName: fallingAnimation
+      firstFrame: -1
+      lastFrame: 272
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: boxsack
+        weight: 1
+      - path: char
+        weight: 1
+      - path: charArmature
+        weight: 1
+      - path: charArmature/spine
+        weight: 1
+      - path: charArmature/spine/Arm_L_1
+        weight: 1
+      - path: charArmature/spine/Arm_L_1/Arm_L_2
+        weight: 1
+      - path: charArmature/spine/Arm_L_1/Arm_L_2/Hand_L
+        weight: 1
+      - path: charArmature/spine/Arm_R_1
+        weight: 1
+      - path: charArmature/spine/Arm_R_1/Arm_R_2
+        weight: 1
+      - path: charArmature/spine/Arm_R_1/Arm_R_2/Hand_R
+        weight: 1
+      - path: charArmature/spine/head
+        weight: 1
+      - path: charArmature/spine/head/Eye_L
+        weight: 1
+      - path: charArmature/spine/head/Eye_R
+        weight: 1
+      - path: charArmature/spine/Leg_L_1
+        weight: 1
+      - path: charArmature/spine/Leg_L_1/Leg_L_2
+        weight: 1
+      - path: charArmature/spine/Leg_L_1/Leg_L_2/Foot_L
+        weight: 1
+      - path: charArmature/spine/Leg_R_1
+        weight: 1
+      - path: charArmature/spine/Leg_R_1/Leg_R_2
+        weight: 1
+      - path: charArmature/spine/Leg_R_1/Leg_R_2/Foot_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: runCycle
+      takeName: runCycle
+      firstFrame: -1
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: boxsack
+        weight: 1
+      - path: char
+        weight: 1
+      - path: charArmature
+        weight: 1
+      - path: charArmature/spine
+        weight: 1
+      - path: charArmature/spine/Arm_L_1
+        weight: 1
+      - path: charArmature/spine/Arm_L_1/Arm_L_2
+        weight: 1
+      - path: charArmature/spine/Arm_L_1/Arm_L_2/Hand_L
+        weight: 1
+      - path: charArmature/spine/Arm_R_1
+        weight: 1
+      - path: charArmature/spine/Arm_R_1/Arm_R_2
+        weight: 1
+      - path: charArmature/spine/Arm_R_1/Arm_R_2/Hand_R
+        weight: 1
+      - path: charArmature/spine/head
+        weight: 1
+      - path: charArmature/spine/head/Eye_L
+        weight: 1
+      - path: charArmature/spine/head/Eye_R
+        weight: 1
+      - path: charArmature/spine/Leg_L_1
+        weight: 1
+      - path: charArmature/spine/Leg_L_1/Leg_L_2
+        weight: 1
+      - path: charArmature/spine/Leg_L_1/Leg_L_2/Foot_L
+        weight: 1
+      - path: charArmature/spine/Leg_R_1
+        weight: 1
+      - path: charArmature/spine/Leg_R_1/Leg_R_2
+        weight: 1
+      - path: charArmature/spine/Leg_R_1/Leg_R_2/Foot_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
