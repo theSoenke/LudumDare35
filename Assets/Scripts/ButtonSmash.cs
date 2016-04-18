@@ -50,6 +50,16 @@ public class ButtonSmash : MonoBehaviour
         return values[random];
     }
 
+
+    private bool PosInViewport(Transform pos)
+    {       
+        if (pos != null && Camera.main.ScreenToViewportPoint(pos.position).x < 0)
+            return false;
+
+        return true;
+    }
+
+
     bool locked = false;
     float xPos = 0;
     void Update()
@@ -75,7 +85,7 @@ public class ButtonSmash : MonoBehaviour
             SpawnKeyGroup();          
         }
 
-        if (t >= 1)
+        if ( !PosInViewport(currentGroup.pos)   )        //t >= 1)
         {
             timer = 0;
 

@@ -8,6 +8,7 @@ public class KeyGroup : MonoBehaviour
     public int maxKeyErrors = 2;
     public GameObject keyPrefab;
     public Sprite[] keyTextures;
+    public Transform pos;
 
     [HideInInspector]
     public bool locked;
@@ -18,6 +19,7 @@ public class KeyGroup : MonoBehaviour
     void Awake()
     {
         InitKeys();
+        pos = keyGroup[0].gameObject.transform;
     }
 
     public void Input(KeyCode keyCode)
@@ -26,18 +28,20 @@ public class KeyGroup : MonoBehaviour
         {
             return;
         }
-        Key nextKey = keyGroup[0];
+        Key nextKey = keyGroup[0];       
 
         if (keyCode == nextKey.keyCode)
         {
             // nextKey.gameObject.GetComponentInChildren<Image>().color = Color.green;
             Destroy(nextKey.gameObject);
-            keyGroup.RemoveAt(0);
+            keyGroup.RemoveAt(0);                   
         }
         else
         {
             keyErrors++;
         }
+        if(keyGroup.Count > 0)
+            pos = keyGroup[0].gameObject.transform;
     }
 
     public void SetColor(Color color)
