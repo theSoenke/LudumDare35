@@ -34,10 +34,12 @@ public class KeyGroup : MonoBehaviour
         {
             // nextKey.gameObject.GetComponentInChildren<Image>().color = Color.green;
             Destroy(nextKey.gameObject);
-            keyGroup.RemoveAt(0);                   
+            keyGroup.RemoveAt(0);
+            GameManager.Instance.klick.Play();               
         }
         else
         {
+            GameManager.Instance.error.Play();
             keyErrors++;
         }
         if(keyGroup.Count > 0)
