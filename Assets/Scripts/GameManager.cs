@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         highscore = PlayerPrefs.GetInt("highscore");
         animatorTreadmill = treadmill.GetComponent<Animator>();
         animatorBoxing = boxing.GetComponent<Animator>();
-        nextScoreText.text = fitnessSwitch.ToString();
+        nextScoreText.text = fitnessSwitch.ToString();      
     }
 
     private void CheckStatus()
@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
         if (score < fitnessSwitch)
         {
             animatorTreadmill.SetTrigger("fail");
-            cameraShake.Shake(.95f);
+            cameraShake.Shake(.9f);
             yield return new WaitForSeconds(4.55f);
         }
         else
