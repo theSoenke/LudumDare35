@@ -70,6 +70,10 @@ public class GameManager : MonoBehaviour
         {
             level = 1;
         }
+        if(score == levelSwitch)
+        {
+            buttonSmasher.groupNr = 0;
+        }
     }
 
     private void Loose()
@@ -92,6 +96,7 @@ public class GameManager : MonoBehaviour
         motivation = Mathf.Clamp(motivation, 0, 1);
         score += 10;
         scoreText.text = score.ToString();
+        buttonSmasher.groupNr++;
         CheckStatus();
     }
 

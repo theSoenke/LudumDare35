@@ -9,12 +9,12 @@ public class ButtonSmash : MonoBehaviour
     public Color failedColor;
 
     public AnimationCurve buttonSpeed;
+    public int groupNr;
 
     private KeyCode[] level1Keys = { KeyCode.LeftArrow, KeyCode.RightArrow };
     private KeyCode[] level2Keys = { KeyCode.LeftArrow, KeyCode.RightArrow, KeyCode.UpArrow, KeyCode.DownArrow };
 
-    private KeyGroup currentGroup;
-    private int groupNr;
+    private KeyGroup currentGroup;   
     private float timer;
 
 
@@ -38,8 +38,7 @@ public class ButtonSmash : MonoBehaviour
                 values = level1Keys;
                 break;
             case 1:
-                values = level2Keys;
-                groupNr = 0;
+                values = level2Keys;                
                 break;
             default:
                 values = level1Keys;
@@ -73,7 +72,7 @@ public class ButtonSmash : MonoBehaviour
             timer = 0;
             GameManager.Instance.GroupFinished();
             Destroy(currentGroup.gameObject);
-            SpawnKeyGroup();
+            SpawnKeyGroup();          
         }
 
         if (t >= 1)
@@ -107,6 +106,7 @@ public class ButtonSmash : MonoBehaviour
 
     private void SpawnKeyGroup()
     {
+        print(groupNr);
         if (!GameManager.Instance.IsRunning())
         {
             return;
@@ -125,7 +125,7 @@ public class ButtonSmash : MonoBehaviour
 
         xPos = currentGroup.transform.position.x;
 
-        groupNr++;
+       
 
         locked = false;
     }
